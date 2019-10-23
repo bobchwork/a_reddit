@@ -48,6 +48,7 @@ const mainReducer = (state = initialState, action) => {
   }
 };
 
+// TODO: Add toastr
 const reducer = combineReducers({
   main: mainReducer,
 });

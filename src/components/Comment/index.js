@@ -8,7 +8,7 @@ import './Comment.css';
 
 const proptypes = {
   comment: PropTypes.object.isRequired,
-  deleteComment: PropTypes.object,
+  deleteComment: PropTypes.func,
   postId: PropTypes.string,
   comments: PropTypes.array,
 };

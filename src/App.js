@@ -4,7 +4,6 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { deleteComment, getPosts } from './actions/posts';
 import Header from './components/Header';
 import Post from './components/Post';
-import { sortByLast } from './helpers/helper';
 import './App.css';
 import './Common.css';
 
@@ -19,7 +18,7 @@ class App extends Component {
       currentIndex: 4,
     }
     this.showMore = this.showMore.bind(this);
-    this.sortByLast = this.sortByLast.bind(this);
+    this.sortPostsByLast = this.sortPostsByLast.bind(this);
   }
 
   componentDidMount() {
@@ -37,9 +36,9 @@ class App extends Component {
     });
   }
 
-  sortByLast() {
-    const { posts } = this.props;
-    const sortedPosts = sortByLast(posts);
+  sortPostsByLast() {
+    // TODO: sort by last
+    alert('TODO');
   }
 
   render() {
@@ -61,7 +60,9 @@ class App extends Component {
           <Grid>
             <Row start="xs">
               <Col xs={12}>
-                <button className="app-button app-last-commentted-button" type="button" onClick={sortByLast}>Sort by last Commentted </button>
+                <button className="app-button app-last-commentted-button" type="button" onClick={this.sortPostsByLast}>Sort by
+                  last Commentted
+                </button>
               </Col>
             </Row>
             <Row start="xs">
