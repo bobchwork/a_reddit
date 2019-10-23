@@ -1,0 +1,27 @@
+.header {
+    background-color: #282c34;
+    min-height: 77px;
+    color: white;
+}
+
+.inline-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.profile-picture {
+    height: 48px;
+    width: 48px;
+    margin-left: 38px;
+}
+
+.header-title {
+    margin-bottom: 0px;
+    font-size: 20px;
+    line-height: 24px;
+    color: white;
+    font-family: 'Roboto Medium', 'Roboto', 'Roboto Light';
+}
+

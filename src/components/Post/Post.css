@@ -1,0 +1,54 @@
+.post-container {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #FAFAFA;
+}
+
+.post-image {
+    max-width: 152px;
+    min-width: 83px;
+    width: 100%;
+    height: 128px;
+    float: left;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.post-title {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 24px;
+    line-height: 28px;
+    font-family: 'Roboto Medium', 'Roboto', 'Roboto Light';
+    padding-left: 20px;
+}
+
+.post-comments-top {
+    float: right;
+    padding-right: 16px;
+
+}
+
+.post-row-description-container {
+    min-height: 95px;
+}
+
+.post-row-comment-container {
+    height: 28px;
+}
+
+.post-paragraph-container {
+    padding-left: 20px;
+}
+
+.post-comments-wrapper {
+    width: 100%;
+    padding-right: 8px;
+    float: right;
+}
+
+.post-comments {
+    width: 99%;
+    padding-left: 12px;
+    padding-right: 8px;
+}

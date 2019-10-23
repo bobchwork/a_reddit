@@ -1,22 +1,56 @@
-.App {
-  text-align: center;
+.app-container {
+    min-height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
+.app-container-body {
+    background: white;
+    margin-top: 12px;
+    padding-top: 22px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.app-post-wrapper {
+    margin-left: 27px;
 }
 
-.App-link {
-  color: #09d3ac;
+.app-button {
+    color: white;
+    cursor: pointer;
+    font-family: 'Roboto Medium', 'Roboto';
+
+}
+.see-more-button {
+    width: 165px;
+    height: 48px;
+    background-image: linear-gradient(to right, #26D0CE, #1A2980);
+    font-size: 16px;
+    border-radius: 60px;
+}
+
+.app-last-commentted-button {
+    margin-left: 27px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    background: black;
+
+}
+
+.see-more-button img, .see-more-button span {
+    padding-right: 10px;
+}
+
+button.see-more-button:focus,
+button.app-last-commentted-button:focus
+{
+    outline: 0;
+}
+
+.button-wrapper {
+    padding: 17px 0 34px 0;
+}
+
+@media screen and (max-width: 600px) {
+    .app-post-wrapper {
+        margin-left: 0;
+    }
 }
