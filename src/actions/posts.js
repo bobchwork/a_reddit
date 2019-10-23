@@ -14,7 +14,6 @@ export const getPosts = (userId = null) => {
 export const deleteComment = (commentId, postId) => {
   const { main: { posts } } = store.getState();
   const post = findPost(postId, posts);
-  console.log(post);
   if (!post) {
     return;
   }
