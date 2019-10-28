@@ -7,7 +7,7 @@ import store from '../config/store';
 export const getPosts = (userId = null) => {
   store.dispatch({
     type: actionTypes.GET_POSTS,
-    payload: axios.get('/challenge.json'),
+    payload: axios.get('/api/challenge.json'),
   });
 };
 
