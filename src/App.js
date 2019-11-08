@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { deleteComment, getPosts } from './actions/posts';
 import Header from './components/Header';
@@ -22,8 +23,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    getPosts();
-    const { firstname, surname, profilePicture } = this.props.user;
+    this.props.getPosts();
+    const {
+      firstname,
+      surname,
+      profilePicture
+    } = this.props.user;
     this.setState({
       profilePicture,
       title: `${firstname} ${surname}`,
@@ -44,7 +49,7 @@ class App extends Component {
   render() {
     const posts = this.props.posts;
     const postsContent = posts && posts.length > 0 && posts.map((post) => (
-      <Post post={post} key={post.id} deleteComment={deleteComment} />
+      <Post post={post} key={post.id} deleteComment={this.props.deleteComment} />
     ));
 
     const content = postsContent && postsContent.slice(0, this.state.currentIndex);
@@ -60,7 +65,8 @@ class App extends Component {
           <Grid>
             <Row start="xs">
               <Col xs={12}>
-                <button className="app-button app-last-commentted-button" type="button" onClick={this.sortPostsByLast}>Sort by
+                <button className="app-button app-last-commentted-button" type="button"
+                        onClick={this.sortPostsByLast}>Sort by
                   last Commentted
                 </button>
               </Col>
@@ -98,13 +104,17 @@ class App extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+    ...bindActionCreators({ deleteComment, getPosts }, dispatch),
+  }
+}
+
 export default connect(
   (state) => ({
     user: state.main.user,
     posts: state.main.posts,
   }),
-  {
-    deleteComment,
-    getPosts,
-  }
+  mapDispatchToProps,
 )(App);
