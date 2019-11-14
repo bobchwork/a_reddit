@@ -1,7 +1,6 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 import { findPost } from '../helpers/helper';
-import store from '../config/store';
 
 export const getPosts = (userId = null) => {
   return {
@@ -11,19 +10,19 @@ export const getPosts = (userId = null) => {
 };
 
 export const deleteComment = (commentId, postId) => {
-  const { main: { posts } } = store.getState();
-  const post = findPost(postId, posts);
-  if (!post) {
-    return;
+  return (dispatch, getState) => {
+    const { main: { posts } } = getState();
+    const post = findPost(postId, posts);
+    if (!post) {
+      return;
+    }
+    const comments = post.comments;
+    const newComments = comments.filter((com) => (com.id !== commentId));
+    const updatedPost = { ...post, comments: newComments };
+  
+    dispatch({
+      type: actionTypes.DELETE_COMMENT,
+      payload: updatedPost,
+    });    
   }
-  const comments = post.comments;
-  const newComments = comments.filter((com) => (com.id !== commentId));
-  const updatedPost = { ...post, comments: newComments };
-
-  return {
-    type: actionTypes.DELETE_COMMENT,
-    payload: updatedPost,
-  };
 };
-
-
